@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedReminders.MainPage"
+             Title="Lithium Reminder">
+
+    <Grid RowDefinitions="*,*,*,*,*"
+          ColumnDefinitions="*,*"
+          BackgroundColor="#1e1e1e">
+        <!--Row 0-->
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Text="The checked state reflects your Seroquel intake."
+               TextColor="#f1f1f1"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="StartAndExpand"
+               HorizontalTextAlignment="Center"
+               FontSize="Large" 
+               FontAttributes="bold"/>
+        
+        <!--Row 1-->
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               HorizontalOptions="EndAndExpand"
+               VerticalOptions="CenterAndExpand"
+               Text="Last Refresh:"
+               TextColor="#f1f1f1"
+               FontSize="Large" />
+        <Label Grid.Row="1"
+               Grid.Column="1"
+               TextColor="Red"
+               FontSize="Large" 
+               FontAttributes="Bold"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Text="{Binding FormattedRefreshTimeStamp}" />
+
+        <!--Row 2-->
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               HorizontalOptions="EndAndExpand"
+               VerticalOptions="CenterAndExpand"
+               HorizontalTextAlignment="End"
+               Text="Previous Timestamp:"
+               TextColor="#f1f1f1"
+               FontSize="Large"  />
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               TextColor="Red"
+               FontSize="Large" 
+               FontAttributes="Bold"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Text="{Binding FormattedPreviousTimeStamp}" />
+
+        <!--Row 3-->
+        <Label Grid.Row="3"
+               Grid.Column="0"
+               Text="Seroquel Check:"
+               TextColor="#f1f1f1"
+               FontSize="Large"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="EndAndExpand" />
+        <Switch Grid.Row="3"
+                Grid.Column="1"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="CenterAndExpand"
+                IsToggled="{Binding CheckedState}"
+                Toggled="Switch_Toggled" />
+        
+        <!--Row 4-->
+        <Button Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="Save Timestamp"
+                TextColor="Black"
+                BackgroundColor="DarkGray"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                HeightRequest="50"
+                WidthRequest="300"
+                FontSize="Large"
+                x:Name="buttSave"
+                Clicked="buttSave_Clicked" />
+    </Grid>
+
+</ContentPage>
